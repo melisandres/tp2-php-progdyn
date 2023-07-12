@@ -1,4 +1,4 @@
-<h1>create a post</h1>
+<h1>Écrire</h1>
 <?php
     if(isset($_SESSION['fingerprint'])){
         echo "<p>Welcome ".$_SESSION['name']."!</p>";

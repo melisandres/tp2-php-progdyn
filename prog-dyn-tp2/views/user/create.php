@@ -1,4 +1,4 @@
-<h1>create user</h1>
+<h1>creer un compte</h1>
 <?php
      //validation variables
     $nameError = $userNameError = $passwordError = $birthdayError = null;

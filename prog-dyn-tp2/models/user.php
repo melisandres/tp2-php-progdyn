@@ -22,20 +22,18 @@ function user_model_authentification(){
             $salt = "kslajGtlewi";
             //set all the session variables
             session_regenerate_id();
-            $_SESSION['logon'] = true;
+            $_SESSION['loggedon'] = true;
             $_SESSION['name'] = $user['userName'];
             $_SESSION['id'] = $user['userId'];
             $_SESSION['fingerprint'] =  md5($_SERVER['HTTP_USER_AGENT'].$_SERVER['REMOTE_ADDR'].$salt);
-            return "/forum/create.php";
+            $result = 'succes';
         }else{
-            return "/user/login.php";
-            /* password error */
+            $result = array('msg' => 2);
         }
     }else{
-        return "/user/login.php";
-            /* username error */
+        $result = array('msg' => 1);;
     } 
-
+    return $result;
 }
 
 function user_model_store($request){

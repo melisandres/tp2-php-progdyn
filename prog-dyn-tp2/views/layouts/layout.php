@@ -10,12 +10,15 @@
 <body>
     <nav>
         <ul>
-            <li><a href="index.php">Accueil</a></li>
-            <li><a href="?module=user&action=logout">Log out</a></li>
-            <li><a href="?module=user&action=login">Log in</a></li>
-            <li><a href="?module=user&action=create">Ajouter l'utilisateur</a></li>
-            <li><a href="?module=forum&action=create">write a post!</a></li>
-            <li><a href="?module=forum&action=select">show all posts!</a></li>
+            <li><a href="index.php">Lire</a></li>
+            <?php
+            if(isset($_SESSION['loggedon'])){
+                echo '<li><a href="?module=forum&action=create">Écrire</a></li>';
+                echo '<li><a href="?module=user&action=logout">Se deconnecter</a></li>';
+            }else{
+                echo '<li><a href="?module=user&action=loginPage">Se connecter</a></li>';
+            }
+            ?>
 
         </ul>
 
