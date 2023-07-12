@@ -11,7 +11,7 @@ if(isset($_GET['msg'])){
     
 <h1>Login</h1>
 <span class="error"><?= $msg;?></span>
-<form action="controllers/authentification.php" method="POST">
+<form action="?module=user&action=login" method="POST">
     <label>Nom d'utilisateur
         <input type="text" name="username" maxlength="35" >
     </label>

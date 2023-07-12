@@ -1,5 +1,4 @@
 <?php
-session_start();
 require_once("connex.php");
 
 foreach ($_POST as $key => $value) {

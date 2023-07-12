@@ -11,11 +11,11 @@
     <nav>
         <ul>
             <li><a href="index.php">Accueil</a></li>
+            <li><a href="?module=user&action=logout">Log out</a></li>
             <li><a href="?module=user&action=login">Log in</a></li>
-            <li><a href="?module=user&action=show">Lister les utilisateurs</a></li>
             <li><a href="?module=user&action=create">Ajouter l'utilisateur</a></li>
             <li><a href="?module=forum&action=create">write a post!</a></li>
-            <li><a href="?module=forum&action=show">show all posts!</a></li>
+            <li><a href="?module=forum&action=select">show all posts!</a></li>
 
         </ul>
 
