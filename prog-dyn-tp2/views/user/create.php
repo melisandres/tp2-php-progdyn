@@ -13,7 +13,7 @@
         <spam><?=$nameError?></span>
     </label>
     <label>Username (email)
-        <input type="email" name="userName" value="<?= $userName;?>">
+        <input type="email" name="userUname" value="<?= $userName;?>">
         <spam><?=$userNameError?></span>
     </label>
     <label>Password

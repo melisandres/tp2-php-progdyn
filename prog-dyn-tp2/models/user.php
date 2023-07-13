@@ -43,7 +43,7 @@ function user_model_store($request){
         $$key = mysqli_real_escape_string($connex, $value);
     }
     $password = password_hash($password, PASSWORD_BCRYPT);
-    $sql = "INSERT INTO user (userName, userUname, userPassword, userBirthday) VALUES ('$name', '$username', '$password', '$birthday')";
+    $sql = "INSERT INTO user (userName, userUname, userPassword, userBirthday) VALUES ('$name', '$userUname', '$password', '$birthday')";
     $result = mysqli_query($connex, $sql);
     mysqli_close($connex);
 }

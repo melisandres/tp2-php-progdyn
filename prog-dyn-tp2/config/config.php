@@ -3,6 +3,7 @@
 define('MODEL_DIR', 'models');
 define('VIEW_DIR', 'views');
 define('CONNEX_DIR', 'lib/connex.php');
+define('CORE_DIR', 'lib/core.php');
 
 //this does not get modified, they are default values
 $config = array (

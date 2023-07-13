@@ -13,7 +13,7 @@ function user_controller_login(){
     if ($result == "succes"){
         header("Location: ?module=forum&action=select");
     }else{
-        //the error messages are in $result
+        //the error messages have been added into the result by the model
         render(VIEW_DIR.'/user/login.php', $result);
     }   
 }
@@ -37,6 +37,7 @@ function user_controller_store($request){
     //message de succes pour le nouvel utilisateur
     $result = array("msg"=>3);
     render(VIEW_DIR.'/user/login.php', $result);
+
 }
 
 ?>

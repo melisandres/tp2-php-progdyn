@@ -3,10 +3,27 @@ $msg = null;
 if(isset($_GET['msg'])){
     if ($_GET['msg']==3){
         $msg = "Deconnexion!";
-    } elseif ($_GET['msg']==4){
+    }elseif ($_GET['msg']==4){
         $msg = "Message supprimé!";
+    }elseif($_GET['msg']==5){
+        $msg = "Invalid request";
+    }elseif($_GET['msg']==6){
+        $msg = "Vous navez pas la permission de suprimer les messages des autres!";
     }
+    echo $_SESSION['id'];
 }
+
+/* if(isset($data['msg'])){
+    if ($data['msg']==3){
+        $msg = "Deconnexion!";
+    }elseif ($data['msg']==4){
+        $msg = "Message supprimé!";
+    }elseif($data['msg']==5){
+        $msg = "Invalid request";
+    }
+} */
+
+
 ?>
 
 <h2>La discussion</h2>
