@@ -18,13 +18,13 @@
         </label>
 
         <label>Article
-            <textarea name="article" required maxlength="1000" rows="20" cols="70" value="<?= $article;?>">
-            </textarea>
+            <textarea name="article" required maxlength="1000" rows="20" cols="70" value="<?= $article;?>"></textarea>
             <span class="error"><?=$articleError;?></span>
         </label>
 
-            <input type="hidden" name="date" value="<?=date('Y/m/d')?>">
-            <input type="hidden" name="id" value="<?= $_SESSION['id'];?>">
+        <input type="hidden" name="date" value="<?=date('Y-m-d')?>">
+
+        <input type="hidden" name="id" value="<?= $_SESSION['id'];?>">
 
         <button type="submit">save</button>
 

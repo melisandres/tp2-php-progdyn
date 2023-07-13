@@ -33,7 +33,14 @@ function forum_controller_show($request){
     }else{
         require_once(MODEL_DIR.'/forum.php');
         $data = forum_model_show($request);
-        render(VIEW_DIR.'/forum/edit.php', $data);
+
+        //check if the user was allowed to see the edit page
+        if($data == false){
+            header('Location: ?module=forum&action=select&msg=7');
+        }else{
+            render(VIEW_DIR.'/forum/edit.php', $data);
+        }
+
     }
 }
 
@@ -44,11 +51,16 @@ function forum_controller_update($request){
         header('Location: ?module=forum&action=select&msg=5');
     }else{
         require_once(MODEL_DIR.'/forum.php');
-        forum_model_update($request);
-        $data = forum_model_list();
-        render(VIEW_DIR.'/forum/select.php', $data);
-    }
+        $result = forum_model_update($request);
 
+        if ($result == false){
+            header('Location: ?module=forum&action=select&msg=7');
+        }else{
+            /* $data = forum_model_list();
+            render(VIEW_DIR.'/forum/select.php', $data); */
+            header('Location: ?module=forum&action=select&msg=8');
+        }
+    }
 }
 
 //this deletes an article
@@ -75,9 +87,9 @@ function forum_controller_store($request){
         require_once(MODEL_DIR.'/forum.php');
         forum_model_store($request);
         //prepare the select view
-        $data = forum_model_list();
-        render(VIEW_DIR.'/forum/select.php', $data);
+        header('Location: ?module=forum&action=select&msg=9');
     }
+    
 }
 
 

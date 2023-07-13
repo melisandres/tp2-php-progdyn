@@ -9,19 +9,14 @@ if(isset($_GET['msg'])){
         $msg = "Invalid request";
     }elseif($_GET['msg']==6){
         $msg = "Vous navez pas la permission de suprimer les messages des autres!";
+    }elseif($_GET['msg']==7){
+        $msg = "Vous navez pas la permission de modifier les messages des autres!";
+    }elseif($_GET['msg']==8){
+        $msg = "Message modifié!";
+    }elseif($_GET['msg']==9){
+        $msg = "Message enregistré!";
     }
-    echo $_SESSION['id'];
 }
-
-/* if(isset($data['msg'])){
-    if ($data['msg']==3){
-        $msg = "Deconnexion!";
-    }elseif ($data['msg']==4){
-        $msg = "Message supprimé!";
-    }elseif($data['msg']==5){
-        $msg = "Invalid request";
-    }
-} */
 
 
 ?>
@@ -32,7 +27,7 @@ if(isset($_GET['msg'])){
 
 <thead>
     <tr>
-        <th>Author</th>
+        <th>Auteur</th>
         <th>Titre</th>
         <th>Article </th>
         <th>Date</th>
@@ -46,9 +41,10 @@ if(isset($_GET['msg'])){
 
     </tr>
 </thead>
+
 <tbody>
     <?php foreach ($data as $row) {?>
-        <tr>
+        <tr <?php if(isset($_SESSION['id']) && $_SESSION['id'] == $row['forumUserId']){echo "class='userRow'";}?>>
             <td> <?=$row['userName']; ?> </td>
             <td> <?=$row['forumTitle']; ?> </td>
             <td> <?=$row['forumArticle']; ?> </td>
@@ -56,8 +52,8 @@ if(isset($_GET['msg'])){
 
             <?php 
             if(isset($_SESSION['id']) && $_SESSION['id'] == $row['forumUserId']){
-                echo "<td> <a href=?module=forum&action=show&id=".$row['forumId']."'>EDIT </a></td>
-                <td> <a href='?module=forum&action=delete&id=".$row['forumId']."'>DELETE </a></td>";
+                echo "<td> <a href='?module=forum&action=show&id=".$row['forumId']."'>EDIT</a></td>
+                <td> <a href='?module=forum&action=delete&id=".$row['forumId']."'>DELETE</a></td>";
             }
             ?>
         </tr>
