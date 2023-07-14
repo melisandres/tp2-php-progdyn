@@ -1,8 +1,8 @@
 <h1>Modifier</h1>
 <?php
     if(isset($_SESSION['fingerprint'])){
-        echo "<p>Welcome ".$_SESSION['name']."!</p>";
-    }else echo "Welcome unknown user!";
+        echo "<p class='msg'>".$_SESSION['name'].", corrigez bien votre histoire!</p>";
+    }else echo "Vous ne devriez pas être ici!";
 
     //validation variables
     $titleError = $articleError = $dateError = null;
